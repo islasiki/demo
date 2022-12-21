@@ -1,5 +1,19 @@
 import streamlit as st
 
+
+# Using object notation
+add_selectbox = st.sidebar.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone")
+)
+
+# Using "with" notation
+with st.sidebar:
+    add_radio = st.radio(
+        "Choose a shipping method",
+        ("Standard (5-15 days)", "Express (2-5 days)")
+    )
+    
 # markdown
 st.markdown('Streamlit Demo')
 
@@ -28,4 +42,28 @@ code2 = '''import streamlit as st
 st.markdown('Streamlit Demo')'''
 st.code(code2, language='python')
 
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c'])
 
+st.line_chart(chart_data)
+
+values = st.slider(
+    'Select a range of values',
+    0.0, 100.0, (25.0, 75.0))
+st.write('Values:', values)
+
+df = pd.DataFrame(
+    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+    columns=['lat', 'lon']
+)
+st.map(df)
+
+genre = st.radio(
+    "What\'s your favorite movie genre",
+    ('Comedy', 'Drama', 'Documentary'))
+
+if genre == 'Comedy':
+    st.write('You selected comedy.')
+else:
+    st.write("You didn\'t select comedy.")
