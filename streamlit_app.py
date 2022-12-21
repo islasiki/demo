@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy
-
+import pandas as pd
 # Using object notation
 add_selectbox = st.sidebar.selectbox(
     "How would you like to be contacted?",
