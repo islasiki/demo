@@ -1,5 +1,5 @@
 import streamlit as st
-
+import numpy
 
 # Using object notation
 add_selectbox = st.sidebar.selectbox(
